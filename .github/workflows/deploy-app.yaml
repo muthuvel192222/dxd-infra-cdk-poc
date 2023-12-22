@@ -1,0 +1,3 @@
+---
+# Github actions workflow file
+name: Pulumi Deploy Application
