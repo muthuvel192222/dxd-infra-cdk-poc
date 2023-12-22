@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print Slack URL Secret
-        run: echo "SLACK_URL=${{ secerts.SLACK_URL }}"
+        run: echo "SLACK_URL=${{ secrets.SLACK_URL }}"
