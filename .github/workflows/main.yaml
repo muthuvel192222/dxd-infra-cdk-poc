@@ -1,0 +1,18 @@
+---
+# Github actions workflow file
+name: CI Code Quality Checks (Linting/Formatting)
+
+on:  # yamllint disable rule:truthy
+    push:
+        branches:
+            - main
+            - feature/*
+        paths-ignore:
+            - 'README.md'
+            - 'TODO.md'
+    pull_request:
+        branches:
+            - develop
+        paths-ignore:
+            - 'README.md'
+            - 'TODO.md'
