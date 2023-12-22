@@ -6,12 +6,22 @@ on:
       - main
 
 jobs:
-  display_secret:
+  build:
     runs-on: ubuntu-latest
-
+    env:
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }} # Reference the secret here
     steps:
-      - name: Checkout Repository
+      - name: Checkout code
         uses: actions/checkout@v2
+      - name: Use Project Name
+        run: echo "Project Name is ${PROJECT_NAME}"
+# jobs:
+#   display_secret:
+#     runs-on: ubuntu-latest
 
-      - name: Print Slack URL Secret
-        run: echo "SLACK_URL=${{ secrets.SLACK_URL }}"
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
+
+#       - name: Print Slack URL Secret
+#         run: echo "SLACK_URL=${{ secrets.SLACK_URL }}"
