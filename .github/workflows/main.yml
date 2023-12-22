@@ -1,0 +1,2 @@
+# Github actions workflow file
+name: Pulumi Destroy Application
