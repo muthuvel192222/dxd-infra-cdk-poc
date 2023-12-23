@@ -36,10 +36,10 @@ jobs:
       PROJECT_NAME: ${{ inputs.environment }} # Reference the secret here
       WORKFLOW_RUN_URL: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
     steps:
-      - name: Checkout code ${PROJECT_NAME}"
+      - name: Checkout code ${env.PROJECT_NAME}"
         uses: actions/checkout@v2
       - name: Use Project Name
-        run: echo "Project Name is ${PROJECT_NAME}"
+        run: echo "Project Name is ${env.WORKFLOW_RUN_URL}"
 # jobs:
 #   display_secret:
 #     runs-on: ubuntu-latest
