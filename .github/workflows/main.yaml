@@ -1,7 +1,7 @@
 # Github actions workflow file
 name: Pulumi Destroy Application
 
-on: # yamllint disable rule:truthy
+on:
   workflow_dispatch:
     inputs:
       environment:
@@ -12,6 +12,22 @@ on: # yamllint disable rule:truthy
           - stg
           - svc
           - prd
+      some_other_input:
+        description: "Description of your second input"
+        required: true
+        type: choice
+        options: # Adding options for the second input
+          - option1
+          - option2
+          - option3
+      another_input:
+        description: "Description of your third input"
+        required: true
+        type: choice # Changed from boolean to choice
+        options: # Adding options for the third input
+          - choice1
+          - choice2
+          - choice3
 
 jobs:
   build:
