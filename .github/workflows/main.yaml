@@ -1,20 +1,28 @@
-name: Display Secerts
+# Github actions workflow file
+name: Pulumi Destroy Application
 
-on:
-  push:
-    branches:
-      - main
+on: # yamllint disable rule:truthy
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "The environment which you would like to DESTROY. NOTE: This change is permanent!"
+        required: true
+        type: choice
+        options:
+          - stg
+          - svc
+          - prd
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PROJECT_NAME: ${{ secrets.PROJECT_NAME }} # Reference the secret here
+      PROJECT_NAME: ${{ inputs.environment }} # Reference the secret here
     steps:
       - name: Checkout code ${PROJECT_NAME}"
         uses: actions/checkout@v2
       - name: Use Project Name
-        run: echo "Project Name is ${PROJECT_NAME}"
+        run: echo "Project Name is ${inputs.environment}"
 # jobs:
 #   display_secret:
 #     runs-on: ubuntu-latest
