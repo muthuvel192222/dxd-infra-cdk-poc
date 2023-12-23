@@ -11,7 +11,7 @@ jobs:
     env:
       PROJECT_NAME: ${{ secrets.PROJECT_NAME }} # Reference the secret here
     steps:
-      - name: Checkout code
+      - name: Checkout code ${PROJECT_NAME}"
         uses: actions/checkout@v2
       - name: Use Project Name
         run: echo "Project Name is ${PROJECT_NAME}"
